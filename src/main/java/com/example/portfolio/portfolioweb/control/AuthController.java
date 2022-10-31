@@ -71,14 +71,13 @@ public class AuthController {
         Set<Rol> roles = new HashSet<>();
         for (String rol : rolesStr) {
             switch (rol) {
-                case "admin" -> {
+                case "admin":
                     Rol rolAdmin = rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get();
                     roles.add(rolAdmin);
-                }
-                default -> {
+                    break;
+                default:
                     Rol rolUser = rolService.getByRolNombre(RolNombre.ROLE_USER).get();
                     roles.add(rolUser);
-                }
             }
         }
         usuario.setRoles(roles);
