@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class EducacionController {
     
     @Autowired
@@ -29,7 +29,7 @@ public class EducacionController {
     
     }
     @PostMapping("/educacion/crear")
-    @PreAuthorize("hasRole('ADMIN')")
+    
     public String crearEducacion(@RequestBody Educacion edu){
     
         interEdu.crearEducacion(edu);
@@ -37,7 +37,7 @@ public class EducacionController {
     }
     
     @DeleteMapping("/educacion/borrar/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    
     public String deleteEducacion(@PathVariable Long id){
     
         interEdu.borrarEducacion(id);
@@ -45,7 +45,7 @@ public class EducacionController {
     
     }
     @PutMapping("/educacion/editar/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    
     public Educacion editarEducacion(@PathVariable Long id,
                                  @RequestParam("anioFin") String nuevoAnioFin,
                                  @RequestParam("anioInicio") String nuevoAnioInicio,
